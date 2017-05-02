@@ -7,11 +7,12 @@ try{
 	$statement = $conn->query($readQuery);
 
 	while($todo = $statement->fetch(PDO::FETCH_OBJ)){
+		$create_date = strftime("%b %d, %Y", strtotime($todo->created_at));
 		$output = "<tr>
                 <td><div> $todo->name </div></td>
                 <td> <div> $todo->description </div> </td>
                 <td> <div>$todo->status </div> </td>
-                <td>$todo->created_at</td>
+                <td>$create_date</td>
                 <td style=\"width: 5%;\"><button><i class=\"btn-danger fa fa-times\"></i></button>
                 </td>
             </tr>";
