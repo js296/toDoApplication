@@ -8,19 +8,10 @@
 
         <table class="table table-striped table-bordered table-responsive">
             <thead>
-            <tr><th>Name</th><th>Description</th><th>Status</th><th>Created</th><th>Action</th></tr>
+            <tr><th>Name</th><th>Description</th><th>Completed?</th><th>Created On</th><th>Action</th></tr>
             </thead>
             
-            <tbody id="task-list">
-            <tr>
-                <td><div>the task name</div></td>
-                <td> <div> The task description </div> </td>
-                <td> <div>task status</div> </td>
-                <td>date added</td>
-                <td style="width: 5%;"><button><i class="btn-danger fa fa-times"></i></button>
-                </td>
-            </tr>
-            </tbody>
+            <tbody id="task-list"> </tbody>
         </table>
     </section>
 </div>

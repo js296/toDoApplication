@@ -16,5 +16,7 @@ $(document).ready(function(){
 				document.getElementById("create-task").reset();
 			}
 		});
+
 	});
+	$('#task-list').load('read.php');
 });
