@@ -13,8 +13,10 @@ if(isset($_POST['name']) && isset($_POST['id'])){
 		$statement = $conn->prepare($updateQuery);
 		$statement->execute(array(":name" => $name, ":id" => $id));
 
-		if($statement){
-			echo "Task name updated successfully";
+		if($statement->rowCount() === 1){
+			echo "Task Name updated successfully";
+		} else {
+			echo "No changes made to Task.";
 		}
 
 	} catch(PDOException $ex){
@@ -32,8 +34,10 @@ else if(isset($_POST['description']) && isset($_POST['id'])){
 		$statement = $conn->prepare($updateQuery);
 		$statement->execute(array(":desc" => $description, ":id" => $id));
 
-		if($statement){
+		if($statement->rowCount() === 1){
 			echo "Task description updated successfully";
+		} else {
+			echo "No changes made in the Description";
 		}
 
 	} catch(PDOException $ex){
@@ -52,8 +56,10 @@ else if(isset($_POST['status']) && isset($_POST['id'])){
 		$statement = $conn->prepare($updateQuery);
 		$statement->execute(array(":status" => $status, ":id" => $id));
 
-		if($statement){
+		if($statement->rowCount() === 1){
 			echo "Task status updated successfully";
+		} else {
+			echo "No changes made if Completed or Not";
 		}
 
 	} catch(PDOException $ex){
