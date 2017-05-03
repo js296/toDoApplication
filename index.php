@@ -1,8 +1,27 @@
-<?php $pageTitle = "Create Task"; ?>
+<?php //$pageTitle = "Create Task"; ?>
 
-<?php include_once 'view/header.php'; ?>
+<?php include_once 'model/Database.php';?>
+<?php //include_once 'view/header.php'; ?>
 
-<div class="container-fluid">
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+</head>
+<body>
+<h2>User Authentication System</h2>
+
+<p>You are currently not signed in <a href="login.php">Login</a> Not yet a member? <a href="signup.php">Signup</a></p>
+
+<p>You are logged in as {username} <a href="logout.php">Logout</a>
+</body>
+</html>
+
+
+
+
+<!-- <div class="container-fluid">
     <section class="col .col-xs-12 .col-sm-6 .col-md-8 col-lg-6 white">
         <h3 class="text-primary">Create a new task </h3><hr>
         <form id="create-task" action="" method="post">
@@ -25,6 +44,6 @@
     </section>
 </div>
 
-
+-->
 
 <?php include_once 'view/footer.php'; ?>

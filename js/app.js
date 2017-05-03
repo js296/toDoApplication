@@ -92,6 +92,7 @@ function deleteTask(todoId){
 		});
 
 		$('#task-list').load('read.php');
+
 	}
 	return false;
 

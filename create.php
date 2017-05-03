@@ -1,6 +1,6 @@
 <?php
 
-include_once 'Database.php';
+include_once 'model/Database.php';
 
 if(isset($_POST['name']) && isset($_POST['description'])){
 	$name = $_POST['name'];
