@@ -20,3 +20,61 @@ $(document).ready(function(){
 	});
 	$('#task-list').load('read.php');
 });
+
+function makeElementEditable(div){
+	div.style.border = "1px dolif lavender";
+	div.style.padding = "5px";
+	div.style.background = "white";
+	div.contentEditable = true;
+}
+
+function updateTaskName(target, todoId){
+	var data = target.textContent; //get the content of whichever feed is clicked on
+	target.style.border = "none";
+	target.style.padding = "0px";
+	target.style.background = "#ececec";
+	target.contentEditable = false;
+
+	$.ajax({
+			url: 'update.php',
+			method: 'POST', //got to specify the request
+			data: {name: data, id:todoId},
+			success: function (data) {
+				$('#ajax_msg').css("display", "block").delay(3000).slideUp(300).html(data);
+			}
+		});
+}
+
+function updateTaskDescription(target, todoId){
+	var data = target.textContent; //get the content of whichever feed is clicked on
+	target.style.border = "none";
+	target.style.padding = "0px";
+	target.style.background = "#ececec";
+	target.contentEditable = false;
+
+	$.ajax({
+			url: 'update.php',
+			method: 'POST', //got to specify the request
+			data: {description: data, id:todoId},
+			success: function (data) {
+				$('#ajax_msg').css("display", "block").delay(3000).slideUp(300).html(data);
+			}
+		});
+}
+
+function updateTaskStatus(target, todoId){
+	var data = target.textContent; //get the content of whichever feed is clicked on
+	target.style.border = "none";
+	target.style.padding = "0px";
+	target.style.background = "#ececec";
+	target.contentEditable = false;
+
+	$.ajax({
+			url: 'update.php',
+			method: 'POST', //got to specify the request
+			data: {status: data, id:todoId},
+			success: function (data) {
+				$('#ajax_msg').css("display", "block").delay(3000).slideUp(300).html(data);
+			}
+		});
+}
