@@ -13,7 +13,7 @@
 			<table>
 				<tr><td>Username:</td><td><input type="text" value=""></td></tr>
 				<tr><td>Password:</td><td><input type="password" value=""></td></tr>
-				<tr><td></td><td><input style="float: right" type="submit" value="Signin"></td></tr>
+				<tr><td></td><td><input style="float: right" type="submit" name="loginBtn" value="Sign in"></td></tr>
 			</table>
 		</form>
 
