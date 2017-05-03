@@ -13,9 +13,9 @@ if (!(getenv('JAWSDB_URL') == null)) {
 	$database = ltrim($dbparts['path'],'/');
 	
 	try {
-	    $db = new PDO("mysql:host=$hostname;dbname=$database", $username, $password, array(PDO::MYSQL_ATTR_FOUND_ROWS => true));
+	    $conn = new PDO("mysql:host=$hostname;dbname=$database", $username, $password, array(PDO::MYSQL_ATTR_FOUND_ROWS => true));
 	    // set the PDO error mode to exception
-	    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	    //echo "Connected successfully";
     }
 	catch(PDOException $e) {
@@ -24,10 +24,12 @@ if (!(getenv('JAWSDB_URL') == null)) {
     }
 }
 else {
+	
 	define("DSN", "mysql:host=localhost;dbname=todoapplication");
 	define("USERNAME", "root");
 	define("PASSWORD", "password");
 	
+	$options = array(PDO::ATTR_PERSISTENT => true);
 	try{
 	    $conn = new PDO(DSN, USERNAME, PASSWORD, $options);
 
@@ -38,3 +40,4 @@ else {
 	    echo "A database error occurred ".$ex->getMessage();
 	}
 
+}
