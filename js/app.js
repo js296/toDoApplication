@@ -18,7 +18,7 @@ $(document).ready(function(){
 		});
 
 	});
-	$('#task-list').load('read.php');
+	$('#task-list').load('read.php'); //reads the content of the read.php file and puts it into tasks.php using ajax
 });
 
 function makeElementEditable(div){
@@ -77,4 +77,22 @@ function updateTaskStatus(target, todoId){
 				$('#ajax_msg').css("display", "block").delay(3000).slideUp(300).html(data);
 			}
 		});
+}
+
+
+function deleteTask(todoId){
+	if(confirm("Do you really want to delete this task?")){
+		$.ajax({
+			url: 'delete.php',
+			method: 'POST', //got to specify the request
+			data: {id:todoId},
+			success: function (data) {
+				$('#ajax_msg').css("display", "block").delay(3000).slideUp(300).html(data);
+			}
+		});
+
+		$('#task-list').load('read.php');
+	}
+	return false;
+
 }
