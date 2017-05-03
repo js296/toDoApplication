@@ -60,7 +60,6 @@ function check_email($data){
     }
     return $form_errors;
 }
-
 /**
  * @param $form_errors_array, the array holding all
  * errors which we want to loop through
