@@ -2,7 +2,6 @@
 include_once 'model/session.php';
 include_once 'model/Database.php';
 include_once 'model/utilities.php';
-include_once 'view/header.php';
 
 if(isset($_POST['loginBtn'])){
     //array to hold errors
@@ -31,7 +30,7 @@ if(isset($_POST['loginBtn'])){
            if(password_verify($password, $hashed_password)){
                $_SESSION['id'] = $id;
                $_SESSION['username'] = $username;
-               header("location: index.php");
+               redirectTo('index');
            }else{
                $result = flashMessage("Invalid username or password");
            }

@@ -84,13 +84,21 @@ function flashMessage($message, $passOrFail = "Fail"){
     }
     return $data;
 }
+function redirectTo($page){
+    header("Location: {$page}.php");
+}
 
-// function checkDuplicateUsername($value, $conn){
-//     try{
-//         $sqlQuery = "SELECT username FROM users WHERE username=:username";
-//         $statement = $conn->prepare($sqlQuery);
-//         $statement->execute()
-//     } catch(PDOException $ex){
-//         echo
-//     }
-// }
+function checkDuplicateEntries($table, $column_name, $value, $conn){
+    try{
+        $sqlQuery = "SELECT * FROM " .$table. " WHERE " .$column_name."=:$column_name";
+        $statement = $conn->prepare($sqlQuery);
+        $statement->execute(array(':$column_name' => $value));
+
+        if($row = $statement->fetch()){
+            return true;
+        }
+        return false;
+    } catch(PDOException $ex){
+        //handle exception
+    }
+}

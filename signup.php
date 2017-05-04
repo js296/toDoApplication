@@ -24,13 +24,20 @@ if(isset($_POST['signupBtn'])){
     //email validation / merge the return data into form_error array
     $form_errors = array_merge($form_errors, check_email($_POST));
 
-    //check if error array is empty, if yes process form data and insert record
-    if(empty($form_errors)){
-        //collect form data and store in variables
-        $email = $_POST['email'];
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+    $email = $_POST['email'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
+    if(checkDuplicateEntries("users", "email", $email, $conn)){
+    	$result = flashMessage("Email is already taken, log in or choose new email.");
+    }
+
+    else if(checkDuplicateEntries("users", "username", $username, $conn)){
+    	$result = flashMessage("Username is already taken, log in or choose a new username.");
+    }
+    //check if error array is empty, if yes process form data and insert record
+    else if(empty($form_errors)){
+        
         //hashing the password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         try{

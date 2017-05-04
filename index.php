@@ -1,22 +1,20 @@
-<?php //$pageTitle = "Create Task"; ?>
-<?php include_once 'model/session.php'; ?>
-<?php include_once 'model/Database.php';?>
-<?php include_once 'view/header.php'; ?>
 
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Homepage</title>
-</head>
-<body>
-<h2>User Authentication System</h2>
 
-<?php if(!isset($_SESSION['username'])): ?>
+    <div class="container">
 
-<p>Already a member? <a href="login.php">Login here. <br></a> Not yet a member? <a href="signup.php">Sign Up Here.</a></p>
+      <div class="flag">
+        <h1>Optimized To-Do List Application</h1>
+        <p class="lead">Create Tasks on the fly using my PHP engine.</p>
+      </div>
+    </div>
+
+<p class="lead">Already a member? <a href="login.php">Login here. <br></a> Not yet a member? <a href="signup.php">Sign Up Here.</a></p>
+
+
+
+
 <?php else:?>
-<p>You are logged in as <?php if(isset($_SESSION['username'])) echo $_SESSION['username']; ?> <a href="logout.php">Logout</a>
+<p class="lead">You are logged in as <?php if(isset($_SESSION['username'])) echo $_SESSION['username']; ?> <a href="logout.php">Logout</a>
 
 
  <div class="container-fluid">
