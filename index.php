@@ -1,22 +1,22 @@
-<?php
-$page_title = "Optimized To-Do List Application";
-include_once 'view/headers.php';
-?>
-    <div class="container">
+<?php //$pageTitle = "Create Task"; ?>
+<?php include_once 'model/session.php'; ?>
+<?php include_once 'model/Database.php';?>
+<?php include_once 'view/header.php'; ?>
 
-      <div class="flag">
-        <h1>Optimized To-Do List Application</h1>
-        <p class="lead">Create Tasks on the fly using my PHP engine.</p>
-        <?php if(!isset($_SESSION['username'])): ?>
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+</head>
+<body>
+<h2>User Authentication System</h2>
 
-        <p class="lead">Already a member? <a href="login.php">Login here. <br></a> Not yet a member? <a href="signup.php">Sign Up Here.</a></p>
-        </div>
-    </div>
+<?php if(!isset($_SESSION['username'])): ?>
 
-
-
-<?php else: ?>
-<p class="lead">You are logged in as <?php if(isset($_SESSION['username'])) echo $_SESSION['username']; ?> <a href="logout.php">Logout</a>
+<p>Already a member? <a href="login.php">Login here. <br></a> Not yet a member? <a href="signup.php">Sign Up Here.</a></p>
+<?php else:?>
+<p>You are logged in as <?php if(isset($_SESSION['username'])) echo $_SESSION['username']; ?> <a href="logout.php">Logout</a>
 
 
  <div class="container-fluid">
@@ -43,6 +43,6 @@ include_once 'view/headers.php';
 </div>
 <?php endif ?>
 
-<?php include_once 'view/footers.php'; ?>
+<?php include_once 'view/footer.php'; ?>
 </body>
 </html>
