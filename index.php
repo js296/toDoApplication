@@ -1,19 +1,21 @@
-
-
+<?php
+$page_title = "Optimized To-Do List Application";
+include_once 'view/headers.php';
+?>
     <div class="container">
 
       <div class="flag">
         <h1>Optimized To-Do List Application</h1>
         <p class="lead">Create Tasks on the fly using my PHP engine.</p>
-      </div>
+        <?php if(!isset($_SESSION['username'])): ?>
+
+        <p class="lead">Already a member? <a href="login.php">Login here. <br></a> Not yet a member? <a href="signup.php">Sign Up Here.</a></p>
+        </div>
     </div>
 
-<p class="lead">Already a member? <a href="login.php">Login here. <br></a> Not yet a member? <a href="signup.php">Sign Up Here.</a></p>
 
 
-
-
-<?php else:?>
+<?php else: ?>
 <p class="lead">You are logged in as <?php if(isset($_SESSION['username'])) echo $_SESSION['username']; ?> <a href="logout.php">Logout</a>
 
 
@@ -41,6 +43,6 @@
 </div>
 <?php endif ?>
 
-<?php include_once 'view/footer.php'; ?>
+<?php include_once 'view/footers.php'; ?>
 </body>
 </html>
