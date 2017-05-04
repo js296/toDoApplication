@@ -85,12 +85,12 @@ function flashMessage($message, $passOrFail = "Fail"){
     return $data;
 }
 
-function checkDuplicateUsername($value, $conn){
-    try{
-        $sqlQuery = "SELECT username FROM users WHERE username=:username";
-        $statement = $conn->prepare($sqlQuery);
-        
-    } catch(PDOException $ex){
-        echo
-    }
-}
+// function checkDuplicateUsername($value, $conn){
+//     try{
+//         $sqlQuery = "SELECT username FROM users WHERE username=:username";
+//         $statement = $conn->prepare($sqlQuery);
+//         $statement->execute()
+//     } catch(PDOException $ex){
+//         echo
+//     }
+// }
