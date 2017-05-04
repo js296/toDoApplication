@@ -1,5 +1,5 @@
 <?php //$pageTitle = "Create Task"; ?>
-<?php include_once 'resource/session.php'; ?>
+<?php include_once 'model/session.php'; ?>
 <?php include_once 'model/Database.php';?>
 <?php include_once 'view/header.php'; ?>
 
@@ -14,7 +14,7 @@
 
 <?php if(!isset($_SESSION['username'])): ?>
 
-<p>You are currently not signed in <a href="login.php">Login</a> Not yet a member? <a href="signup.php">Signup</a></p>
+<p>Already a member? <a href="login.php">Login here. <br></a> Not yet a member? <a href="signup.php">Sign Up Here.</a></p>
 <?php else:?>
 <p>You are logged in as <?php if(isset($_SESSION['username'])) echo $_SESSION['username']; ?> <a href="logout.php">Logout</a>
 

@@ -46,17 +46,17 @@ if(isset($_POST['signupBtn'])){
 
             //check if one new row was created
             if($statement->rowCount() == 1){
-                $result = "<p style='padding:20px; border: 1px solid gray; color: green;'> Registration Successful</p>";
+                $result = flashMessage("Registration Successful", "Pass");
             }
         }catch (PDOException $ex){
-            $result = "<p style='padding:20px; border: 1px solid gray; color: red;'> An error occurred: ".$ex->getMessage()."</p>";
+            $result = flashMessage("An error occurred: " .$ex->getMessage());
         }
     }
     else{
         if(count($form_errors) == 1){
-            $result = "<p style='color: red;'> There was 1 error in the form<br>";
+            $result = flashMessage("There was 1 error in the form<br>");
         }else{
-            $result = "<p style='color: red;'> There were " .count($form_errors). " errors in the form <br>";
+            $result = flashMessage("There were " .count($form_errors). " errors in the form <br>");
         }
     }
 
@@ -78,9 +78,9 @@ if(isset($_POST['signupBtn'])){
 <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
 <form method="post" action="">
     <table>
-        <tr><td>Email:</td> <td><input type="text" value="" name="email"></td></tr>
-        <tr><td>Username:</td> <td><input type="text" value="" name="username"></td></tr>
-        <tr><td>Password:</td> <td><input type="password" value="" name="password"></td></tr>
+        <tr><td>Email:</td> <td><input type="text" value="" name="email" autocomplete="off"></td></tr>
+        <tr><td>Username:</td> <td><input type="text" value="" name="username" autocomplete="off"></td></tr>
+        <tr><td>Password:</td> <td><input type="password" value="" name="password" autocomplete="off"></td></tr>
         <tr><td></td><td><input style="float: right;" type="submit" name="signupBtn" value="Signup"></td></tr>
     </table>
 </form>

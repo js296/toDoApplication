@@ -37,8 +37,12 @@
         </div>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav navbar-right">
+                <?php if(!isset($_SESSION['username'])): ?>
+                <li><a href="index.php"><i class="fa fa-sign-in"></i>&nbsp; Jason Designs</a></li>
+                <?php else:?>
                 <li><a href="index.php"><i class="fa fa-plus"></i>&nbsp; Create Task</a></li>
                 <li><a href="tasks.php"><i class="fa fa-eye-slash"></i>&nbsp; View Tasks</a></li>
+            <?php endif ?>
             </ul>
         </div>
     </div>

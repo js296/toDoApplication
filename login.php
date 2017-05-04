@@ -1,5 +1,5 @@
 <?php
-include_once 'resource/session.php';
+include_once 'model/session.php';
 include_once 'model/Database.php';
 include_once 'model/utilities.php';
 
@@ -32,15 +32,15 @@ if(isset($_POST['loginBtn'])){
                $_SESSION['username'] = $username;
                header("location: index.php");
            }else{
-               $result = "<p style='padding: 20px; color: red; border: 1px solid gray;'> Invalid username or password</p>";
+               $result = flashMessage("Invalid username or password");
            }
        }
 
     }else{
         if(count($form_errors) == 1){
-            $result = "<p style='color: red;'>There was one error in the form </p>";
+            $result = flashMessage("There was one error in the form");
         }else{
-            $result = "<p style='color: red;'>There were " .count($form_errors). " error in the form </p>";
+            $result = flashMessage("There were " .count($form_errors). " errors in the form");
         }
     }
 }
@@ -60,8 +60,8 @@ if(isset($_POST['loginBtn'])){
 <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
 <form method="post" action="">
     <table>
-        <tr><td>Username:</td> <td><input type="text" value="" name="username"></td></tr>
-        <tr><td>Password:</td> <td><input type="password" value="" name="password"></td></tr>
+        <tr><td>Username:</td> <td><input type="text" value="" name="username" autocomplete="off"></td></tr>
+        <tr><td>Password:</td> <td><input type="password" value="" name="password" autocomplete="off"></td></tr>
         <tr><td><a href="forgot_password.php">Forgot Password?</a></td><td><input style="float: right;" type="submit" name="loginBtn" value="Signin"></td></tr>
     </table>
 </form>
