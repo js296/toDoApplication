@@ -2,6 +2,7 @@
 include_once 'model/session.php';
 include_once 'model/Database.php';
 include_once 'model/utilities.php';
+include_once 'view/header.php';
 
 if(isset($_POST['loginBtn'])){
     //array to hold errors

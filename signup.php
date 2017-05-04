@@ -2,6 +2,7 @@
 //add our database connection script
 include_once 'model/Database.php';
 include_once 'model/utilities.php';
+include_once 'view/header.php';
 
 //process the form
 if(isset($_POST['signupBtn'])){
